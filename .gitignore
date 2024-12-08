@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Prerequisites
 *.d
 
@@ -51,6 +50,3 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
-=======
-*.exe
->>>>>>> 16ef679 (Opis zmian)
