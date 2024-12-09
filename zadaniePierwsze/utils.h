@@ -1,0 +1,17 @@
+#ifndef UTILS_H
+#define UTILS_H
+
+typedef struct Stack{
+
+    char data[100];
+    int top;
+}Stack;
+
+void push(Stack *stack, char item);
+char pop(Stack *stack);
+char peek(Stack *stack);
+int isEmpty(Stack *stack);
+
+#endif // UTILS_H
+
+
