@@ -5,7 +5,7 @@
 int main() {
     char input[100] = "(2+7)*3";
 
-    if (validateBrackets(input)) 
+    if (validateBrackets(input))
         printf("Correct expression\n");
 
     else
