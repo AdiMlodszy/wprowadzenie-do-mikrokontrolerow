@@ -12,6 +12,8 @@ char pop(Stack *stack);
 char peek(Stack *stack);
 int isEmpty(Stack *stack);
 
+int validateBrackets(const char *expression);
+
 #endif // UTILS_H
 
 

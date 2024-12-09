@@ -3,11 +3,12 @@
 #include "utils.h"
 
 int main() {
-    Stack stack = {.top = -1};
-    push(&stack, '*');
-    push(&stack, 'd');
+    char input[100] = "(2+7)*3";
 
-    printf("Pierwszy elemenent na stosie to: %c", peek(&stack));
+    if (validateBrackets(input)) 
+        printf("Correct expression\n");
 
+    else
+        printf("Incorrect expression\n");
     return 0;
 }
