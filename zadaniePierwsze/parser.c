@@ -25,7 +25,7 @@ void tokenize(const char *expression, TokenList *tokenList)
         }
         if (isdigit(expression[i]))
         {
-            char number[50];
+            char number[20];
             int j = 0;
 
             while (isdigit(expression[i]) || expression[i] == '.')

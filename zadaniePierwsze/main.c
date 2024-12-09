@@ -1,9 +1,12 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 #include "parser.h"
 #include "utils.h"
 
-
-int main() {
+int main()
+{
     char input[100] = "(2+7)*3";
 
     if (validateBrackets(input))

@@ -4,7 +4,7 @@
 typedef struct Stack
 {
 
-    char data[100];
+    char data[100]; 
     int top;
 } Stack;
 
