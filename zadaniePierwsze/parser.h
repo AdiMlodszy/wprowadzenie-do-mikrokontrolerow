@@ -1,7 +1,13 @@
 #ifndef PARSER_H
 #define PARSER_H
 
-typedef struct {
+/**
+ * @brief Structure to store the tokens
+ *
+ */
+
+typedef struct
+{
     char data[100][20];
     int count;
 } TokenList;

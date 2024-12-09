@@ -3,58 +3,58 @@
 #include "utils.h"
 
 /**
- * @brief Dodaj element na stos
- * 
- * @param stack Wskaźnik na stos
- * @param item Element do dodania
+ * @brief Add element to the stack
+ *
+ * @param stack Pointer to the stack
+ * @param item Item to add
  */
 
 void push(Stack *stack, char item)
 {
-    stack -> data[++stack -> top] = item;
+    stack->data[++stack->top] = item;
 }
 
 /**
- * @brief Wypchnij element ze stosu
- * 
- * @param stack Wskaźnik na stos
- * @return Element zdjęty ze stosu
+ * @brief Remove element from the stack
+ *
+ * @param stack Pointer to the stack
+ * @return Removed element
  */
 
 char pop(Stack *stack)
 {
-    return stack -> data[stack -> top--];
+    return stack->data[stack->top--];
 }
 
 /**
- * @brief Zwróć element ze stosu
- * 
- * @param stack Wskaźnik na stos
- * @return Element na szczycie stosu
+ * @brief Get the top element of the stack
+ *
+ * @param stack Pointer to the stack
+ * @return Top element
  */
 
 char peek(Stack *stack)
 {
-    return stack -> data[stack -> top];
+    return stack->data[stack->top];
 }
 
 /**
- * @brief Sprawdź czy stos jest pusty
- * 
- * @param stack Wskaźnik na stos
- * @return 1 jeśli stos jest pusty, 0 w przeciwnym wypadku
+ * @brief Check if the stack is empty
+ *
+ * @param stack Pointer to the stack
+ * @return 1 if the stack is empty, 0 otherwise
  */
 
 int isEmpty(Stack *stack)
 {
-    return stack -> top == -1;
+    return stack->top == -1;
 }
 
 /**
- * @brief Walidacja nawiasów
- * 
- * @param expression Wskaźnik na wyrażenie
- * @return 1 jeśli nawiasy są poprawne, 0 w przeciwnym wypadku
+ * @brief Validate the brackets in the expression
+ *
+ * @param expression Expression to validate
+ * @return 1 if the expression is correct, 0 otherwise
  */
 
 int validateBrackets(const char *expression)
@@ -65,15 +65,14 @@ int validateBrackets(const char *expression)
     {
         if (expression[i] == '(')
             push(&stack, expression[i]);
-        
+
         else if (expression[i] == ')')
         {
-            if (isEmpty(&stack)) 
+            if (isEmpty(&stack))
                 return 0;
-            
+
             pop(&stack);
         }
     }
     return isEmpty(&stack);
-
 }
