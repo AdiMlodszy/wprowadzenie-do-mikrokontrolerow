@@ -113,14 +113,14 @@ void tokenize(const char *expression, TokenList *tokenList)
         {
             // Inny znak -> błąd (np. litera)
             // Można tutaj ustawić flagę błędu lub przerwać.
-            fprintf(stderr, "Nieznany znak w wyrażeniu: %c\n", expression[i]);
+            fprintf(stderr, "Nieznany znak w wyrazeniu: %c\n", expression[i]);
             break;
         }
     }
 }
 
 /**
- * @brief Konwertuje listę tokenów z formy infiksowej na RPN za pomocą algorytmu Shunting Yard.
+ * @brief Konwertuje listę tokenów z formy infiksowej na notacje odwrotną polską (RPN) za pomocą algorytmu Shunting Yard.
  *
  * @param tokens Lista tokenów
  * @param rpnTokens Wyjściowa tablica tokenów w formacie RPN
@@ -204,20 +204,20 @@ static double applyOperator(double a, double b, char op, int *errorFlag)
         case '/':
             if (b == 0)
             {
-                fprintf(stderr, "Błąd: Dzielenie przez zero!\n");
+                fprintf(stderr, "Blad: Dzielenie przez zero!\n");
                 *errorFlag = 1;
                 return 0;
             }
             return a / b;
         default:
-            fprintf(stderr, "Błąd: Nieznany operator %c\n", op);
+            fprintf(stderr, "Blad: Nieznany operator %c\n", op);
             *errorFlag = 1;
             return 0;
     }
 }
 
 /**
- * @brief Oblicza wartość wyrażenia w notacji infiksowej (np. (2+7)*3), zwracając
+ * @brief Oblicza wartość wyrażenia w notacji infiksowej  ((2+7)*3), zwracając
  *        wynik typu double. W razie błędu ustawia errorFlag na 1.
  *
  * @param expression Wyrażenie tekstowe
@@ -253,7 +253,7 @@ double evaluateExpression(const char *expression, int *errorFlag)
             if (top < 1) 
             {
                 // Za mało argumentów na stosie
-                fprintf(stderr, "Błąd: Niewystarczająca liczba argumentów do operatora.\n");
+                fprintf(stderr, "Blad: Niewystarczajaca liczba argumentow do operatora.\n");
                 *errorFlag = 1;
                 return 0;
             }
@@ -269,7 +269,7 @@ double evaluateExpression(const char *expression, int *errorFlag)
         else
         {
             // Nieznany token (np. litera albo inny błąd)
-            fprintf(stderr, "Błąd: Nieznany token %s\n", rpnTokens[i]);
+            fprintf(stderr, "Blad: Nieznany token %s\n", rpnTokens[i]);
             *errorFlag = 1;
             return 0;
         }
@@ -278,7 +278,7 @@ double evaluateExpression(const char *expression, int *errorFlag)
     // Na końcu na stosie powinna być dokładnie jedna wartość (wynik)
     if (top != 0)
     {
-        fprintf(stderr, "Błąd: Niezgodna liczba wartości na stosie.\n");
+        fprintf(stderr, "Blad: Niezgodna liczba wartosci na stosie.\n");
         *errorFlag = 1;
         return 0;
     }

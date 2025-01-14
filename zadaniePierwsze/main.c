@@ -14,12 +14,11 @@
  */
 int main()
 {
-    // Przykład: wczytanie z stdin
     char input[100];
-    printf("Podaj wyrażenie (np. (2+7)*3): ");
+    printf("Podaj wyrazenie: ");
     if(!fgets(input, sizeof(input), stdin))
     {
-        printf("Błąd odczytu wyrażenia.\n");
+        printf("Blad odczytu wyrazenia.\n");
         return 1;
     }
     // usuwamy znak nowej linii, jeśli jest
@@ -30,7 +29,7 @@ int main()
     // Sprawdzamy poprawność nawiasów
     if (!validateBrackets(input))
     {
-        printf("Błąd: Niepoprawne nawiasy w wyrażeniu.\n");
+        printf("Blad: Niepoprawne nawiasy w wyrazeniu.\n");
         return 1;
     }
 
@@ -41,7 +40,7 @@ int main()
     if (errorFlag)
     {
         // Komunikat o błędzie może być już wypisany wewnątrz evaluateExpression
-        printf("Wystąpił błąd w obliczeniach.\n");
+        printf("Wystapil bład w obliczeniach.\n");
     }
     else
     {
