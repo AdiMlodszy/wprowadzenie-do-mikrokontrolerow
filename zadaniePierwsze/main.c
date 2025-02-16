@@ -16,15 +16,15 @@ int main()
 {
     char input[100];
     printf("Podaj wyrazenie: ");
-    if(!fgets(input, sizeof(input), stdin))
+    if (!fgets(input, sizeof(input), stdin))
     {
         printf("Blad odczytu wyrazenia.\n");
         return 1;
     }
     // usuwamy znak nowej linii, jeśli jest
     size_t len = strlen(input);
-    if (len > 0 && input[len-1] == '\n')
-        input[len-1] = '\0';
+    if (len > 0 && input[len - 1] == '\n')
+        input[len - 1] = '\0';
 
     // Sprawdzamy poprawność nawiasów
     if (!validateBrackets(input))
@@ -46,6 +46,5 @@ int main()
     {
         printf("Wynik: %g\n", result);
     }
-
     return 0;
 }

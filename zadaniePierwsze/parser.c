@@ -23,12 +23,14 @@ static int isOperator(char c)
  */
 static int precedence(char op)
 {
-    switch(op)
+    switch (op)
     {
-        case '+': 
-        case '-': return 1;
-        case '*': 
-        case '/': return 2;
+    case '+':
+    case '-':
+        return 1;
+    case '*':
+    case '/':
+        return 2;
     }
     return 0; // nieznany operator
 }
@@ -132,7 +134,7 @@ static void infixToRPN(const TokenList *tokens, char rpnTokens[100][20], int *rp
     opStack.top = -1;
     *rpnCount = 0;
 
-    for(int i = 0; i < tokens->count; i++)
+    for (int i = 0; i < tokens->count; i++)
     {
         char *t = (char *)tokens->data[i];
 
@@ -149,13 +151,14 @@ static void infixToRPN(const TokenList *tokens, char rpnTokens[100][20], int *rp
                 char topOp[20];
                 strcpy(topOp, opStack.rpnData[opStack.top]);
 
-                if (isOperator(topOp[0]) && 
+                if (isOperator(topOp[0]) &&
                     precedence(topOp[0]) >= precedence(t[0]))
                 {
                     // Zdejmujemy operator ze stosu do wyjścia
                     popRPN(&opStack, rpnTokens[(*rpnCount)++]);
                 }
-                else break;
+                else
+                    break;
             }
             // Wrzucamy bieżący operator na stos
             pushRPN(&opStack, t);
@@ -196,23 +199,26 @@ static void infixToRPN(const TokenList *tokens, char rpnTokens[100][20], int *rp
  */
 static double applyOperator(double a, double b, char op, int *errorFlag)
 {
-    switch(op)
+    switch (op)
     {
-        case '+': return a + b;
-        case '-': return a - b;
-        case '*': return a * b;
-        case '/':
-            if (b == 0)
-            {
-                fprintf(stderr, "Blad: Dzielenie przez zero!\n");
-                *errorFlag = 1;
-                return 0;
-            }
-            return a / b;
-        default:
-            fprintf(stderr, "Blad: Nieznany operator %c\n", op);
+    case '+':
+        return a + b;
+    case '-':
+        return a - b;
+    case '*':
+        return a * b;
+    case '/':
+        if (b == 0)
+        {
+            fprintf(stderr, "Blad: Dzielenie przez zero!\n");
             *errorFlag = 1;
             return 0;
+        }
+        return a / b;
+    default:
+        fprintf(stderr, "Blad: Nieznany operator %c\n", op);
+        *errorFlag = 1;
+        return 0;
     }
 }
 
@@ -250,7 +256,7 @@ double evaluateExpression(const char *expression, int *errorFlag)
         }
         else if (isOperator(rpnTokens[i][0]) && strlen(rpnTokens[i]) == 1)
         {
-            if (top < 1) 
+            if (top < 1)
             {
                 // Za mało argumentów na stosie
                 fprintf(stderr, "Blad: Niewystarczajaca liczba argumentow do operatora.\n");
@@ -282,6 +288,5 @@ double evaluateExpression(const char *expression, int *errorFlag)
         *errorFlag = 1;
         return 0;
     }
-
     return stack[top];
 }

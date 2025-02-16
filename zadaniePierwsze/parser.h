@@ -7,8 +7,8 @@
  */
 typedef struct
 {
-    char data[100][20];  // np. "2", "7", "*", "(" itd.
-    int count;           // liczba zebranych tokenów
+    char data[100][20]; // np. "2", "7", "*", "(" itd.
+    int count;          // liczba zebranych tokenów
 } TokenList;
 
 /**
@@ -21,10 +21,10 @@ void tokenize(const char *expression, TokenList *tokenList);
 
 /**
  * @brief Oblicza wartość wyrażenia w zapisie infiksowym (np. "2+7*3"),
- *        automatycznie zamieniając je na RPN i obliczając wynik.
+ *        automatycznie zamieniając je na RPN i obliczając wynik.t
  *
- * @param expression Wyrażenie tekstowe
- * @param errorFlag  Wskaźnik na flagę błędu (ustawiane na 1, gdy wystąpi błąd)
+ * @param expression Wyrażenie tekstowe.
+ * @param errorFlag  Wskaźnik na flagę błędu (ustawiane na 1, gdy wystąpi błąd).
  * @return Zwraca wartość wyrażenia typu double.
  */
 double evaluateExpression(const char *expression, int *errorFlag);

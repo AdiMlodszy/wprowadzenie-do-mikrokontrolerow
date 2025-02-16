@@ -38,8 +38,8 @@ char peek(Stack *stack)
 /**
  * @brief Sprawdza, czy stos jest pusty.
  *
- * @param stack Wskaźnik na stos
- * @return 1 jeśli pusty, w przeciwnym razie 0
+ * @param stack Wskaźnik na stos.
+ * @return 1 jeśli pusty, w przeciwnym razie 0.
  */
 int isEmpty(Stack *stack)
 {
